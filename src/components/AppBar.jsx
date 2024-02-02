@@ -14,7 +14,6 @@ import MenuItem from "@mui/material/MenuItem";
 import PetsIcon from "@mui/icons-material/Pets";
 import { Link } from "react-router-dom";
 
-
 const pages = [
   { route: "/", page: "Home" },
   { route: "/page", page: "Page" },
@@ -42,28 +41,26 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{background: "#242526", height: "65px"}}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <AppBar position="static" sx={{ background: "#242526", height: "80px" }}>
+      <Container maxWidth="xxl" sx={{p:0}}>
+        <Toolbar disaleGutters   sx={{pl:0, pt:1}}>
           <PetsIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Link to="/" className="nav-link">
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              mr: 3,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "white",
-              textDecoration: "none",
-              background: "#242526"
-            }}
-          >
-            Reilly Cat
-          </Typography></Link>
+            <Typography
+              variant="h6"          
+              component="a"
+              sx={{  
+                mr: 3,
+                ml: 1,
+                display: { xs: "none", md: "flex" },
+                color: "white",
+                textDecoration: "none",
+                background: "#242526",
+              }}
+            >
+              Reilly Cat's Portfolio
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -77,6 +74,7 @@ function ResponsiveAppBar() {
               <MenuIcon />
             </IconButton>
             <Menu
+          
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -95,7 +93,11 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map(({ route, page }) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} sx={{width: "150px"}}>
+                <MenuItem
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ width: "150px" }}
+                >
                   <Link className="nav-link" to={`${route}`}>
                     <Typography textAlign="center">{page}</Typography>
                   </Link>
@@ -103,25 +105,25 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-        
           <PetsIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+
           <Typography
             variant="h5"
-            noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
+              ml: 1,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
+              textAlign: "center",
               color: "inherit",
-              textDecoration: "none",
+              textDecoration: "none",    
             }}
           >
-            Reilly Cat
+            <Link to="/" className="nav-link">
+              Reilly Cat's Portfolio
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map(({ route, page }) => (
